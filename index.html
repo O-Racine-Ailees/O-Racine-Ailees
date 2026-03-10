@@ -3,101 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ô Racines Ailées | Soins & Harmonie Holistique</title>
+    <title>Ô Racines Ailées | Soins Holistiques & Énergétiques</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #556b2f; /* Vert olive profond */
-            --accent: #b8860b; /* Or sombre pour le côté précieux */
-            --bg: #fdfcf9;
-            --text: #333;
+            --bg-color: #F9F7F2;
+            --primary-color: #6B705C; /* Vert sauge profond */
+            --accent-color: #B7B7A4; /* Beige terreux */
+            --text-dark: #3F4238;
+            --white: #ffffff;
         }
-        body { font-family: 'Georgia', serif; margin: 0; color: var(--text); background: var(--bg); line-height: 1.8; scroll-behavior: smooth; }
+
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg-color); 
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        /* Header style Dribbble */
+        header { 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+        .logo { font-size: 1.5rem; color: var(--primary-color); letter-spacing: 2px; }
         
-        header { background: rgba(255,255,255,0.95); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
-        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 0 20px; }
-        .logo { font-size: 1.4rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
+        /* Hero Section avec formes organiques */
+        .hero { 
+            display: flex; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 0 10%;
+            background: linear-gradient(135deg, #F3F1EB 0%, #EAE7DE 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-text { flex: 1; z-index: 2; }
+        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--primary-color); }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 30px; max-width: 500px; }
 
-        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1350&q=80'); 
-                background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: normal; }
-        .hero-content p { font-size: 1.4rem; margin-bottom: 30px; font-style: italic; opacity: 0.9; }
+        .hero-image { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center;
+            position: relative;
+        }
+        /* La forme organique derrière l'image */
+        .blob {
+            width: 400px; height: 400px;
+            background: var(--accent-color);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            overflow: hidden;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+        }
+        .blob img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); }
 
-        .section { padding: 100px 20px; max-width: 1100px; margin: auto; }
-        .text-center { text-align: center; }
+        /* Boutons arrondis type Divi */
+        .btn { 
+            padding: 15px 35px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-primary { background: var(--primary-color); color: var(--white); border: 1px solid var(--primary-color); }
+        .btn-primary:hover { background: transparent; color: var(--primary-color); }
+
+        /* Section Services en Grille */
+        .services { padding: 100px 10%; text-align: center; }
+        .services h2 { font-size: 2.5rem; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .service-card { background: white; padding: 40px; border-radius: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
-        .service-card h3 { color: var(--primary); margin-top: 0; }
+        .card { 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 30px; 
+            transition: transform 0.3s ease;
+            text-align: left;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .card .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
 
-        .testimonials { background: #f4f1ea; padding: 80px 20px; text-align: center; }
-        .quote { font-style: italic; max-width: 700px; margin: 20px auto; font-size: 1.2rem; }
+        /* Contact Section */
+        .contact { background: var(--primary-color); color: var(--white); padding: 80px 10%; border-radius: 50px 50px 0 0; text-align: center; }
+        .contact h2 { font-size: 3rem; margin-bottom: 20px; }
+        .contact p { margin-bottom: 40px; opacity: 0.9; }
 
-        .cta-btn { background: var(--primary); color: white; padding: 18px 35px; text-decoration: none; border-radius: 2px; font-weight: bold; transition: 0.3s; display: inline-block; }
-        .cta-btn:hover { background: var(--accent); transform: scale(1.05); }
-
-        footer { background: #222; color: #999; padding: 50px 0; text-align: center; font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .blob { width: 280px; height: 280px; margin-top: 40px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <div class="logo">Ô RACINES AILÉES</div>
-        <div>
-            <a href="#services" style="margin-right:25px; text-decoration:none; color:var(--text)">Services</a>
-            <a href="#contact" class="cta-btn" style="padding: 10px 20px;">Prendre RDV</a>
-        </div>
-    </nav>
+    <div class="logo">Ô RACINES AILÉES</div>
+    <a href="#contact" class="btn btn-primary" style="padding: 10px 25px;">Prendre RDV</a>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Retrouvez votre Équilibre</h1>
-        <p>Soins énergétiques et accompagnement vers une vie plus sereine.</p>
-        <a href="#services" class="cta-btn">Découvrir mes soins</a>
+    <div class="hero-text">
+        <h1>Ancrage et <br><i>Élévation</i></h1>
+        <p>Trouvez vos racines pour déployer vos ailes. Un accompagnement holistique pour harmoniser votre corps et votre esprit.</p>
+        <a href="#services" class="btn btn-primary">Explorer mes soins</a>
     </div>
-</section>
-
-<section id="services" class="section">
-    <div class="text-center">
-        <h2 style="font-size: 2.5rem;">Mon Accompagnement</h2>
-        <p style="max-width: 700px; margin: auto;">Je vous aide à lever vos blocages et à reconnecter votre corps à votre esprit grâce à des techniques douces et naturelles.</p>
-    </div>
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>Harmonisation Énergétique</h3>
-            <p>Un soin complet pour rééquilibrer vos chakras, évacuer le stress accumulé et retrouver une vitalité durable. Idéal en période de changement.</p>
-            <strong>60 min — 60€</strong>
-        </div>
-        <div class="service-card">
-            <h3>Accompagnement Nature</h3>
-            <p>Des séances de reconnexion en extérieur pour utiliser la puissance des éléments dans votre processus de guérison et d'ancrage.</p>
-            <strong>90 min — 85€</strong>
-        </div>
-        <div class="service-card">
-            <h3>Bilan Flash</h3>
-            <p>Une séance courte pour identifier un blocage précis et repartir avec des outils concrets à appliquer chez soi immédiatement.</p>
-            <strong>30 min — 35€</strong>
+    <div class="hero-image">
+        <div class="blob">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Bien-être">
         </div>
     </div>
 </section>
 
-<section class="testimonials">
-    <h2>Ce que disent mes clients</h2>
-    <div class="quote">"Une expérience transformatrice. J'ai enfin trouvé l'ancrage qui me manquait pour avancer dans mes projets professionnels."</div>
-    <p><strong>— Sophie R.</strong></p>
+<section id="services" class="services">
+    <h2>Mes Pratiques</h2>
+    <div class="grid">
+        <div class="card">
+            <span class="icon">🌿</span>
+            <h3>Soins Énergétiques</h3>
+            <p>Rééquilibrage des centres énergétiques pour libérer les tensions et retrouver une circulation fluide de votre vitalité.</p>
+        </div>
+        <div class="card">
+            <span class="icon">✨</span>
+            <h3>Accompagnement Holistique</h3>
+            <p>Un cheminement personnalisé pour comprendre vos blocages et transformer vos épreuves en forces de croissance.</p>
+        </div>
+        <div class="card">
+            <span class="icon">🌳</span>
+            <h3>Ateliers Nature</h3>
+            <p>Se reconnecter à la terre pour mieux s'élever. Des sessions en extérieur pour pratiquer l'ancrage en pleine conscience.</p>
+        </div>
+    </div>
 </section>
 
-<section id="contact" class="section text-center">
-    <h2>Prêt(e) à prendre votre envol ?</h2>
-    <p>Les séances se déroulent sur rendez-vous à [Votre Ville] ou à distance.</p>
-    <br>
-    <a href="https://www.facebook.com/oracinesailees/" class="cta-btn">Me contacter via Facebook</a>
-    <p style="margin-top:20px;">Ou par téléphone : <strong>06 XX XX XX XX</strong></p>
+<section id="contact" class="contact">
+    <h2>Prêt(e) pour le voyage ?</h2>
+    <p>Chaque séance est une étape vers votre propre liberté intérieure.</p>
+    <a href="https://www.facebook.com/oracinesailees/" class="btn" style="background: white; color: var(--primary-color);">Réserver via Facebook</a>
+    <div style="margin-top: 40px; font-size: 0.9rem; opacity: 0.7;">
+        Basé à [Votre Localisation] | Suivez-moi sur les réseaux
+    </div>
 </section>
 
-<footer>
-    <p>&copy; 2026 Ô Racines Ailées | Mentions Légales | Site créé pour votre bien-être</p>
+<footer style="text-align: center; padding: 20px; font-size: 0.8rem; background: var(--primary-color); color: white; opacity: 0.6;">
+    &copy; 2024 Ô Racines Ailées. Design inspiré par l'harmonie.
 </footer>
 
 </body>
