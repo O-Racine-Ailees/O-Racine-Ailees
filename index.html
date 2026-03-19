@@ -24,13 +24,13 @@
             line-height: 1.6;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            scroll-padding-top: 90px;
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; color: var(--primary-color); }
 
         header { 
-            padding: 15px 5%; 
+            padding: 0 5%; 
             display: flex; justify-content: space-between; align-items: center; 
             background: rgba(249, 247, 242, 0.98);
             backdrop-filter: blur(10px);
@@ -53,7 +53,7 @@
         /* Section Hero */
         .hero { 
             display: flex; align-items: center; min-height: 90vh; 
-            padding: 120px 10% 60px 10%;
+            padding: 100px 10% 60px 10%;
             background: linear-gradient(135deg, #F3F1EB 0%, #EAE7DE 100%);
         }
         .hero-text { flex: 1.2; }
@@ -80,16 +80,26 @@
         .card-tarif { background: var(--white); padding: 30px; border-radius: 20px; text-align: left; border: 1px solid rgba(0,0,0,0.03); }
         .price { font-weight: bold; color: var(--primary-color); font-size: 1.2rem; }
 
-        /* Contact */
-        .contact-section { background: var(--primary-color); color: var(--white); padding: 80px 10%; text-align: center; border-radius: 40px 40px 0 0; }
+        /* Section Contact (Correction Titre) */
+        .contact-section { 
+            background: var(--primary-color); 
+            padding: 80px 10%; 
+            text-align: center; 
+            border-radius: 40px 40px 0 0; 
+        }
+        .contact-section h2 { color: var(--white); margin-top: 0; }
+        .contact-section p { color: var(--white); opacity: 0.9; }
+
         .contact-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .contact-card { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; min-width: 240px; flex: 1; text-decoration: none; color: white; transition: 0.2s; }
+        .contact-card { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; min-width: 240px; flex: 1; text-decoration: none; color: white; transition: 0.2s; border: 1px solid rgba(255,255,255,0.05); }
+        .contact-card h3 { color: var(--white); margin-bottom: 5px; font-size: 1.2rem; }
         .contact-card:hover { background: rgba(255,255,255,0.2); }
 
         @media (max-width: 768px) {
             header { height: 70px; padding: 0 15px; }
             .logo { font-size: 0.85rem; }
-            header .btn { padding: 6px 12px; font-size: 0.75rem; }
+            header div { gap: 8px; }
+            header .btn { padding: 6px 10px; font-size: 0.7rem; }
             .hero { flex-direction: column-reverse; padding-top: 100px; text-align: center; }
             .hero-text h1 { font-size: 2.2rem; margin-top: 20px; }
             .blob { width: 260px; height: 260px; }
@@ -173,11 +183,13 @@
 </section>
 
 <section id="contact" class="contact-section">
-    <h2>Contact & Rendez-vous</h2>
+    <h2>Prêt(e) pour une pause ?</h2>
+    <p>Contactez-moi directement pour convenir d'un rendez-vous ou me rendre visite.</p>
+    
     <div class="contact-container">
-        <a href="https://www.google.com/maps/search/?api=1&query=36+rue+Emile+hermant+6200+Bouffioulx" target="_blank" class="contact-card">
+        <a href="https://maps.google.com/?q=rue+Emile+hermant+36+6200+Bouffioulx" target="_blank" class="contact-card">
             <h3>Adresse</h3>
-            <p>36 rue Émile hermant, 6200 Bouffioulx</p>
+            <p>36 rue Émile hermant,<br>6200 Bouffioulx, Belgique</p>
         </a>
         <a href="tel:+32471346815" class="contact-card">
             <h3>Téléphone</h3>
@@ -189,12 +201,12 @@
         </a>
         <a href="https://www.facebook.com/oracinesailees/" target="_blank" class="contact-card">
             <h3>Facebook</h3>
-            <p>Ô Racines Ailées</p>
+            <p>Suivez Ô Racines Ailées</p>
         </a>
     </div>
 </section>
 
-<footer style="text-align: center; padding: 30px; font-size: 0.8rem; opacity: 0.5;">
+<footer style="text-align: center; padding: 40px 20px; font-size: 0.8rem; opacity: 0.6;">
     © 2026 Ô Racines Ailées
 </footer>
 
